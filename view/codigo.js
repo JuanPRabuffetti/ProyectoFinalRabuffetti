@@ -1,6 +1,6 @@
 async function obtenerProductos() {
     try {
-        const response = await fetch('../db.json'); // Asegúrate de que la ruta sea correcta
+        const response = await fetch('./db.json'); // Asegúrate de que la ruta sea correcta
         if (!response.ok) {
             throw new Error('Error en la respuesta de la API');
         }
