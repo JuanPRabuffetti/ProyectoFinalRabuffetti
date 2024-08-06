@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Ropa</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <script src="../view/codigo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <div class="menu-hamburguesa" id="menuHamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="carrito-icono" id="carritoIcono">
+            <img src="../assets/3144456.png" alt="Carrito">
+        </div>
+    </header>
+    
+
+    <div class="gallery"></div>
+
+    <div class="carrito-sidebar" id="carritoSidebar">
+        <button class="cerrar-sidebar" id="cerrarSidebar">&times;</button>
+        <h2>Carrito de Compras</h2>
+        <ul id="carrito"></ul>
+        <div id="totalCarrito">Total: $0.00</div>
+        <button id="realizarCompra">Realizar Compra</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

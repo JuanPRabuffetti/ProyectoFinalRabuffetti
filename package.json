@@ -1,0 +1,12 @@
+{
+    "name": "tu-proyecto",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "json-server --watch db.json --port 3000",
+      "serve": "live-server"
+    },
+    "dependencies": {
+      "json-server": "^0.16.3",
+      "live-server": "^1.2.1"
+    }
+  }
