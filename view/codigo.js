@@ -1,11 +1,11 @@
 async function obtenerProductos() {
     try {
-        const response = await fetch('db.json'); 
+        const response = await fetch('../db.json'); // Asegúrate de que la ruta sea correcta
         if (!response.ok) {
             throw new Error('Error en la respuesta de la API');
         }
-        const productos = await response.json();
-        return productos;
+        const data = await response.json();
+        return data.products; // Accede al array de productos dentro del objeto JSON
     } catch (error) {
         console.error('Error al obtener los productos:', error);
         mostrarMensajeDeError('No se pudieron obtener los productos. Intenta nuevamente más tarde.');
