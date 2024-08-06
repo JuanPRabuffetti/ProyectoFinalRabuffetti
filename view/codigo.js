@@ -1,6 +1,6 @@
 async function obtenerProductos() {
     try {
-        const response = await fetch('http://localhost:3000/products');
+        const response = await fetch('db.json'); 
         if (!response.ok) {
             throw new Error('Error en la respuesta de la API');
         }
@@ -137,7 +137,6 @@ function mostrarMensajeDeError(mensaje) {
     });
 }
 
-// Inicializar la tienda al cargar la página
 window.onload = function() {
     inicializarTienda();
     document.getElementById('realizarCompra').addEventListener('click', realizarCompra);
