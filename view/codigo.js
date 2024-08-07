@@ -113,14 +113,36 @@ function actualizarTotal() {
 
 function realizarCompra() {
     Swal.fire({
-        title: 'Compra realizada',
-        text: '¡Gracias por tu compra!',
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
+        title: 'Realizar Compra',
+        html: `
+            <input type="text" id="nombre" class="swal2-input" placeholder="Nombre">
+            <input type="text" id="apellido" class="swal2-input" placeholder="Apellido">
+        `,
+        focusConfirm: false,
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        cancelButtonText: 'Cancelar',
+        preConfirm: () => {
+            const nombre = Swal.getPopup().querySelector('#nombre').value;
+            const apellido = Swal.getPopup().querySelector('#apellido').value;
+            if (!nombre || !apellido) {
+                Swal.showValidationMessage('Por favor ingresa nombre y apellido');
+                return false;
+            }
+            return { nombre, apellido };
+        }
     }).then((result) => {
         if (result.isConfirmed) {
+            const { nombre, apellido } = result.value;
             localStorage.removeItem('carrito'); // Vaciar el carrito
             mostrarCarrito(); // Actualizar la visualización del carrito
+
+            Swal.fire({
+                title: 'Compra realizada',
+                text: `¡Gracias por tu compra, ${nombre} ${apellido}!`,
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            });
         }
     }).catch((error) => {
         console.error('Error al realizar la compra:', error);
@@ -137,7 +159,7 @@ function mostrarMensajeDeError(mensaje) {
     });
 }
 
-window.onload = function() {
+window.onload = function () {
     inicializarTienda();
     document.getElementById('realizarCompra').addEventListener('click', realizarCompra);
 
