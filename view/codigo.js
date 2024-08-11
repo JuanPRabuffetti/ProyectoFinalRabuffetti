@@ -1,6 +1,6 @@
 async function obtenerProductos() {
     try {
-        const response = await fetch('./db.json'); // Asegúrate de que la ruta sea correcta
+        const response = await fetch('./db.json'); 
         if (!response.ok) {
             throw new Error('Error en la respuesta de la API');
         }
@@ -31,7 +31,7 @@ async function inicializarTienda() {
         gallery.appendChild(productDiv);
     });
 
-    mostrarCarrito(); // Asegúrate de mostrar el carrito al inicializar la tienda
+    mostrarCarrito(); //Mostramos el carrito al inicializar la tienda
 }
 
 function agregarAlCarrito(nombre, precio) {
